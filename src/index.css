@@ -1,0 +1,108 @@
+/* General app container */
+body {
+  background: #f7f7fa;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+/* Center the app */
+#root > div {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px 24px;
+}
+
+/* Input and button styling */
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 70%;
+  font-size: 1rem;
+  margin-right: 8px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+input[type="text"]:focus {
+  border: 1.5px solid #7c3aed;
+}
+
+button {
+  padding: 10px 18px;
+  background: #7c3aed;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #5b21b6;
+}
+
+/* Todo list styling */
+div > div > div {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  margin: 12px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+div > div > div p {
+  flex: 1;
+  margin: 0 12px;
+  font-size: 1.05rem;
+  color: #333;
+  word-break: break-word;
+}
+
+div > div > div input[type="checkbox"] {
+  accent-color: #7c3aed;
+  width: 18px;
+  height: 18px;
+}
+
+div > div > div svg {
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+div > div > div svg:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 6px #7c3aed33);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 3px;
+}
