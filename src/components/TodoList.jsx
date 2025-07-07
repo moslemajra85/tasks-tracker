@@ -1,11 +1,16 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({ todos, onDeleteTodo }) => {
+const TodoList = ({ todos, onDeleteTodo, toggleCompleted }) => {
   return (
     <div className="todo-list">
       {todos.map((todo, index) => (
-        <Todo deleteTodo={onDeleteTodo} key={index} todo={todo} />
+        <Todo
+          toggleCompleted={toggleCompleted}
+          deleteTodo={onDeleteTodo}
+          key={index}
+          todo={todo}
+        />
       ))}
     </div>
   );

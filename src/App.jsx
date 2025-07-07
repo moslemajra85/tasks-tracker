@@ -26,13 +26,25 @@ const App = () => {
   const deleteTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
+
+  const toggleCompleted = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
+  };
   return (
     <div>
       <div>
         <input onChange={handleChange} value={todoText} type="text" />
         <button onClick={handleAdd}>Add</button>
       </div>
-      <TodoList onDeleteTodo={deleteTodo} todos={todos} />
+      <TodoList
+        toggleCompleted={toggleCompleted}
+        onDeleteTodo={deleteTodo}
+        todos={todos}
+      />
     </div>
   );
 };

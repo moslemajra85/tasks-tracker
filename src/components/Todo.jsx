@@ -1,7 +1,7 @@
 import { TbTrashXFilled } from "react-icons/tb";
 import { useState } from "react";
 
-const Todo = ({ todo, deleteTodo }) => {
+const Todo = ({ todo, deleteTodo, toggleCompleted }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleDelete = (id) => {
@@ -10,9 +10,12 @@ const Todo = ({ todo, deleteTodo }) => {
 
   const handleCheck = () => {
     setIsChecked(!isChecked);
+    toggleCompleted(todo.id);
   };
   return (
     <div>
+
+  
       <input onChange={handleCheck} type="checkbox" />
       <p className={isChecked ? "completed" : ""}>{todo.content}</p>
       <TbTrashXFilled
