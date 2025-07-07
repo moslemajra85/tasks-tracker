@@ -106,3 +106,42 @@ div > div > div svg:hover {
   text-decoration-color: red;
   text-decoration-thickness: 3px;
 }
+
+/* Modern, appealing style for the filter select */
+select {
+  padding: 12px 18px;
+  border: 2px solid #7c3aed;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f3f4f6 60%, #ede9fe 100%);
+  color: #3b0764;
+  font-size: 1.08rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.07);
+  appearance: none;
+  cursor: pointer;
+  min-width: 180px;
+  position: relative;
+}
+
+/* Custom arrow for select */
+select {
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' stroke='%237c3aed' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 22px 22px;
+}
+
+select:focus {
+  border-color: #5b21b6;
+  box-shadow: 0 0 0 3px #c7d2fe;
+  background: linear-gradient(90deg, #ede9fe 60%, #f3f4f6 100%);
+}
+
+option {
+  color: #3b0764;
+  background: #fff;
+  font-weight: 500;
+}

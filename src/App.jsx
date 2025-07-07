@@ -4,6 +4,19 @@ import TodoList from "./components/TodoList";
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [todoText, setTodoText] = useState("");
+  const [filter, setFilter] = useState("all");
+
+  const filtered = todos.filter((todo) => {
+    if (filter === "completed") {
+      return todo.isCompleted === true;
+    }
+
+    if (filter === "uncompleted") {
+      return todo.isCompleted === false;
+    }
+
+    return true;
+  });
 
   const handleChange = (event) => {
     setTodoText(event.target.value);
@@ -35,9 +48,18 @@ const App = () => {
     );
   };
 
-  
+  const handleSelectFilter = (event) => {
+    setFilter(event.target.value);
+  };
+
   return (
     <div>
+      <h1>Filter By</h1>
+      <select onChange={handleSelectFilter}>
+        <option value="all">Select All</option>
+        <option value="completed">Completed</option>
+        <option value="uncompleted">Uncompleted</option>
+      </select>
       <div>
         <input onChange={handleChange} value={todoText} type="text" />
         <button onClick={handleAdd}>Add</button>
@@ -45,7 +67,7 @@ const App = () => {
       <TodoList
         toggleCompleted={toggleCompleted}
         onDeleteTodo={deleteTodo}
-        todos={todos}
+        todos={filtered}
       />
     </div>
   );
