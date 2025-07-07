@@ -10,15 +10,17 @@ const App = () => {
   };
 
   const handleAdd = () => {
-    const newTodos = {
-      id: todos.length + 1,
-      content: todoText,
-      isCompleted: false,
-    };
+    if (todoText) {
+      const newTodos = {
+        id: todos.length + 1,
+        content: todoText,
+        isCompleted: false,
+      };
 
-    setTodos([...todos, newTodos]);
+      setTodos([...todos, newTodos]);
 
-    setTodoText("");
+      setTodoText("");
+    }
   };
 
   const deleteTodo = (id) => {
