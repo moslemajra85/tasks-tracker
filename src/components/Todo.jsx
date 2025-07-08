@@ -2,11 +2,13 @@ import { TbTrashXFilled } from "react-icons/tb";
 import { useState } from "react";
 
 const Todo = ({ todo, deleteTodo, toggleCompleted }) => {
+  
   const handleDelete = (id) => {
     deleteTodo(id);
   };
 
   const handleCheck = () => {
+
     toggleCompleted(todo.id);
   };
   return (
