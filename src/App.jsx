@@ -8,20 +8,20 @@ const App = () => {
       : []
   );
 
-  const [todoText, setTodoText] = useState('')
+  const [todoText, setTodoText] = useState("");
   const [searchText, setSearchText] = useState("");
   const [filter, setFilter] = useState("all");
 
   const target = todos.find((todo) => todo.content.includes(searchText));
   console.log(target);
   // Load Todos From Local Storage
-  useEffect(() => {
-    const savedTodos = localStorage.getItem("todos");
+  // useEffect(() => {
+  //   const savedTodos = localStorage.getItem("todos");
 
-    if (savedTodos) {
-      setTodos(JSON.parse(savedTodos));
-    }
-  }, []);
+  //   if (savedTodos) {
+  //     setTodos(JSON.parse(savedTodos));
+  //   }
+  // }, []);
 
   // save todos to the local storage whenever they change
   useEffect(() => {
@@ -91,7 +91,7 @@ const App = () => {
         <input onChange={handleSearchTodo} value={searchText} type="text" />
       </div>
       <div>
-        <input onChange={handleChange} value={todoText}  />
+        <input onChange={handleChange} value={todoText} />
         <button onClick={handleAdd}>Add</button>
       </div>
       <TodoList
