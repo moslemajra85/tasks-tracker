@@ -1,30 +1,12 @@
 import React, { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 const App = () => {
-
-  const [todos, setTodos] = useState(
-    localStorage.getItem("todos")
-      ? JSON.parse(localStorage.getItem("todos"))
-      : []
-  );
+  const { todos, setTodos } = useLocalStorage();
 
   const [todoText, setTodoText] = useState("");
   const [filter, setFilter] = useState("all");
-
-  // Load Todos From Local Storage
-  // useEffect(() => {
-  //   const savedTodos = localStorage.getItem("todos");
-
-  //   if (savedTodos) {
-  //     setTodos(JSON.parse(savedTodos));
-  //   }
-  // }, []);
-
-  // save todos to the local storage whenever they change
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
 
   const filtered = todos.filter((todo) => {
     if (filter === "completed") {
