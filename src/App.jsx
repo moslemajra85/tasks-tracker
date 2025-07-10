@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
 
 const App = () => {
+
   const [todos, setTodos] = useState(
     localStorage.getItem("todos")
       ? JSON.parse(localStorage.getItem("todos"))
@@ -9,11 +10,8 @@ const App = () => {
   );
 
   const [todoText, setTodoText] = useState("");
-  const [searchText, setSearchText] = useState("");
   const [filter, setFilter] = useState("all");
 
-  const target = todos.find((todo) => todo.content.includes(searchText));
-  console.log(target);
   // Load Todos From Local Storage
   // useEffect(() => {
   //   const savedTodos = localStorage.getItem("todos");
@@ -74,9 +72,6 @@ const App = () => {
     setFilter(event.target.value);
   };
 
-  const handleSearchTodo = (event) => {
-    setSearchText(event.target.value);
-  };
   return (
     <div>
       <h1>Filter By</h1>
@@ -86,12 +81,12 @@ const App = () => {
         <option value="uncompleted">Uncompleted</option>
       </select>
 
-      <div className="todo-input-wrapper">
-        <span className="search-emoji">🔍</span>
-        <input onChange={handleSearchTodo} value={searchText} type="text" />
-      </div>
-      <div>
-        <input onChange={handleChange} value={todoText} />
+      <div className="add-todo-wrapper">
+        <input
+          onChange={handleChange}
+          value={todoText}
+          placeholder="Add a new todo..."
+        />
         <button onClick={handleAdd}>Add</button>
       </div>
       <TodoList

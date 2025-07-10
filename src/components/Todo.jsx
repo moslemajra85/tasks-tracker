@@ -12,7 +12,7 @@ const Todo = ({ todo, deleteTodo, toggleCompleted }) => {
     toggleCompleted(todo.id);
   };
   return (
-    <div>
+    <div className="todo-item">
       <input
         checked={todo.isCompleted}
         onChange={handleCheck}
